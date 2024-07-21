@@ -1,0 +1,17 @@
+version: '3'
+services:
+  fastapi:
+    container_name: otiva_fastapi
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./fastapi:/app
+    networks:
+      - otiva
+networks:
+  test-app:
+    driver: bridge
