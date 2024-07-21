@@ -1,7 +1,7 @@
 version: '3'
 services:
   fastapi:
-    container_name: otiva_fastapi
+    container_name: test_fastapi
     restart: unless-stopped
     build:
       context: .
@@ -9,9 +9,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./fastapi:/app
+      - .:/app
     networks:
-      - otiva
+      - test-app
 networks:
   test-app:
     driver: bridge
